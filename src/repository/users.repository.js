@@ -7,8 +7,8 @@ export default class UserRepository {
         this.dao = dao;
     }
 
-    getById = async (uid) => {
-        return this.dao.getById(uid);
+    findByEmail = async (email) => {
+        return this.dao.findByEmail(email);
     }
 
     get = async () => {

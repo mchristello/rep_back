@@ -1,4 +1,4 @@
-import VentaModel from "./models/ventas.model";
+import VentaModel from "./models/ventas.model.js";
 
 
 export default class Ventas {
@@ -12,9 +12,10 @@ export default class Ventas {
         }
     }
 
-    get = async () => {
+    get = async (user) => {
         try {
-            const ventas = await VentaModel.findById().lean().exec();
+            console.log(user);
+            const ventas = await VentaModel.find({ user: user._id }).lean().exec();
             return ventas;
         } catch (error) {
             console.log(`Error in GET - ventas.mongo: ${error.message}`);
@@ -23,11 +24,9 @@ export default class Ventas {
 
     create = async (ventaFromDTO) => {
         try {
-            console.log({ventaFromDTO});
             const nuevaVenta = await VentaModel.create(ventaFromDTO);
             nuevaVenta.save();
-            return true;
-
+            return nuevaVenta;
         } catch (error) {
             console.log(`Error in CREATE - ventas.mongo: ${error.message}`);
         }
@@ -36,7 +35,7 @@ export default class Ventas {
     update = async (rid, data) => {
         try {
             const updateEntry = await VentaModel.update({ _id: rid}, data);
-            return true;
+            return updateEntry;
         } catch (error) {
             console.log(`Error in UPDATE - ventas.mongo: ${error.message}`);
         }

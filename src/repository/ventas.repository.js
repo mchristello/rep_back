@@ -10,8 +10,8 @@ export default class VentaRepository {
         return this.dao.getById(vid);
     }
 
-    get = async () => {
-        return this.dao.get();
+    get = async (user) => {
+        return this.dao.get(user);
     }
 
     create = async (data) => {

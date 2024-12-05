@@ -22,43 +22,47 @@ const ventaSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    repuesto: {
-        type: String,
-        required: true
-    },
-    precioClaims: {
-        type: Number,
-        required: true
-    },
-    iva: {
-        type: Number,
-        required: true
-    },
-    importeFactura: {
-        type: Number,
-        required: true
-    },
-    costo: {
-        type: Number,
-        required: true
-    },
-    flete: {
-        type: Number,
-        required: true
-    },
-    ganancia: {
-        type: Number,
-        required: true
-    },
+    items: [
+        {
+            repuesto: {
+                type: String,
+                required: true
+            },
+            precioClaims: {
+                type: Number,
+                required: true
+            },
+            iva: {
+                type: Number,
+                required: true
+            },
+            importeFacturar: {
+                type: Number,
+                required: true
+            },
+            costo: {
+                type: Number,
+                required: true
+            },
+            flete: {
+                type: Number,
+                required: true
+            },
+            ganancia: {
+                type: Number,
+                required: true
+            }
+        }
+    ],
     gananciaTotal: {
         type: Number,
         required: true
     },
-    dineroMati: {
+    gananciaMati: {
         type: Number,
         required: true
     },
-    dineroAxel: {
+    gananciaAxel: {
         type: Number,
         required: true
     },
@@ -66,7 +70,7 @@ const ventaSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    createdBy: {
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
     }
