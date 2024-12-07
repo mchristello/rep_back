@@ -3,7 +3,6 @@ import { VentasService } from '../repository/index.js';
 export const get = async (req, res) => {
     try {
         const user = req.session.user;
-
         const ventas = await VentasService.get(user);
 
         const result = ventas.length > 0 ? ventas : `Este usuario no registra ventas para mostrar.`

@@ -14,7 +14,6 @@ export default class Ventas {
 
     get = async (user) => {
         try {
-            console.log(user);
             const ventas = await VentaModel.find({ user: user._id }).lean().exec();
             return ventas;
         } catch (error) {
