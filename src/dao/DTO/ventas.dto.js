@@ -18,8 +18,8 @@ export default class VentaDTO {
             ? venta.items.map(item => ({
                 repuesto: item.repuesto || '',
                 precioClaims: item.precioClaims || 0,
-                iva: (item.precioClaims || 0) * 0.21,
-                importeFacturar: (item.precioClaims || 0) + ((item.precioClaims || 0) * 0.21),
+                iva: item.iva || 0,
+                importeFacturar: item.importeFacturar || 0,
                 costo: item.costo || 0,
                 flete: item.flete || 0,
                 ganancia: item.ganancia || 0
