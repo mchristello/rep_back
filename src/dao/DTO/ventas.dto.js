@@ -8,7 +8,6 @@ function parseFecha(fecha) {
 
 export default class VentaDTO {
     constructor(venta) {
-        console.log({venta});
         this.fecha = parseFecha(venta.fecha) || new Date().toLocaleString();
         this.numeroSiniestro = venta.numeroSiniestro || 0;
         this.porcentajeAporte = venta.porcentajeAporte || 50;

@@ -97,12 +97,6 @@ export const deleteUser = async (req, res) => {
 export const currentUser = async (req, res) => {
     try {
         const user = req.session.user
-        // if(!user) {
-        //     return res.status(401).send({
-        //         status: 'error',
-        //         error: 'You need to log in first.'
-        //     });
-        // }
 
         const result = await UserService.findByEmail(user.email)
 
