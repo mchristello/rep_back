@@ -5,7 +5,7 @@ export const get = async (req, res) => {
         const user = req.session.user;
         const ventas = await VentasService.get(user);
 
-        const result = ventas.length > 0 ? ventas : `Este usuario no registra ventas para mostrar.`
+        const result = ventas.length > 0 ? ventas : []
 
         return res.status(200).send({ 
             status: 'success',
