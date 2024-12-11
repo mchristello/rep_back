@@ -54,6 +54,10 @@ const ventaSchema = new mongoose.Schema({
             }
         }
     ],
+    facturaTotal: {
+        type: Number,
+        required: true
+    },
     gananciaTotal: {
         type: Number,
         required: true

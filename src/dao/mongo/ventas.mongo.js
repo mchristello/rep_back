@@ -23,9 +23,10 @@ export default class Ventas {
 
     create = async (ventaFromDTO) => {
         try {
-            console.log({ventaFromDTO});
+            // console.log({ventaFromDTO});
             const nuevaVenta = await VentaModel.create(ventaFromDTO);
             nuevaVenta.save();
+            
             return true;
         } catch (error) {
             console.log(`Error in CREATE - ventas.mongo: ${error.message}`);

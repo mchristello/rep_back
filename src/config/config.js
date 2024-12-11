@@ -18,4 +18,5 @@ export default {
     // Nodemailer
     TRANSPORT_USER: process.env.TRANSPORT_USER,
     HOTMAIL_TRANSPORT_PASS: process.env.HOTMAIL_TRANSPORT_PASS,
+    GOOGLE_TRANSPORT_PASS: process.env.GOOGLE_TRANSPORT_PASS,
 }
