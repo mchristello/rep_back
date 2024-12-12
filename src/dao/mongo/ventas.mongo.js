@@ -24,8 +24,8 @@ export default class Ventas {
     create = async (ventaFromDTO) => {
         try {
             // console.log({ventaFromDTO});
-            const nuevaVenta = await VentaModel.create(ventaFromDTO);
-            nuevaVenta.save();
+            // const nuevaVenta = await VentaModel.create(ventaFromDTO);
+            // nuevaVenta.save();
             
             return true;
         } catch (error) {

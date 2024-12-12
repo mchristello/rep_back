@@ -19,4 +19,7 @@ export default {
     TRANSPORT_USER: process.env.TRANSPORT_USER,
     HOTMAIL_TRANSPORT_PASS: process.env.HOTMAIL_TRANSPORT_PASS,
     GOOGLE_TRANSPORT_PASS: process.env.GOOGLE_TRANSPORT_PASS,
+    // URLs
+    DEV_URL: process.env.DEV_URL,
+    PROD_URL: process.env.PROD_URL,
 }
