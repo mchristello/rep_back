@@ -62,9 +62,9 @@ export const create = async (req, res) => {
                                 <tbody>
                                     <tr style="width:100%">
                                         <td>
-                                            <img alt="Plaid" height="88" 
-                                            src='${config.PROD_URL}/img/IMG_1151.JPEG' 
-                                            style="display:block;outline:none;border:none;text-decoration:none;margin:0 auto" width="212" />
+                                            <img alt="Logo" height="275" 
+                                            src='https://repback-production.up.railway.app/img/IMG_1151.JPEG' 
+                                            style="display:block;outline:none;border:none;text-decoration:none;margin:0 auto" width="350" />
 
                                             <p style="font-size:18px;line-height:16px;margin:2rem auto;color:#0a85ea;font-weight:700;font-family:HelveticaNeue,Helvetica,Arial,sans-serif;height:20px;letter-spacing:0;text-transform:uppercase;text-align:center" >Se ingresó una nueva venta</p>
                                             <h1 style="color:#000;font-family:HelveticaNeue-Medium,Helvetica,Arial,sans-serif;font-size:20px;font-weight:500;line-height:24px;margin-bottom:0;margin:0 auto;text-align:center" > Número de Siniestro ${data.numeroSiniestro}</h1>
