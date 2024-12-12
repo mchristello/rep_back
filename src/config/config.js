@@ -17,8 +17,10 @@ export default {
     COOKIE_SECRET: process.env.COOKIE_SECRET,
     // Nodemailer
     TRANSPORT_USER: process.env.TRANSPORT_USER,
-    HOTMAIL_TRANSPORT_PASS: process.env.HOTMAIL_TRANSPORT_PASS,
     GOOGLE_TRANSPORT_PASS: process.env.GOOGLE_TRANSPORT_PASS,
+    GOOGLE_TRANSPORT_PASS_2: process.env.GOOGLE_TRANSPORT_PASS_2,
+    CLIENT_ID: process.env.CLIENT_ID,
+    CLIENT_SECRET: process.env.CLIENT_SECRET,
     // URLs
     DEV_URL: process.env.DEV_URL,
     PROD_URL: process.env.PROD_URL,

@@ -4,17 +4,23 @@ import config from '../config/config.js';
 
 export default class Mail {
 
+    
+    
     constructor() {
         this.transport = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.gmail.com',
             auth: {
                 user: config.TRANSPORT_USER,
-                pass: config.GOOGLE_TRANSPORT_PASS
+                pass: config.GOOGLE_TRANSPORT_PASS,
+                clientId: config.CLIENT_ID,
+                clientSecret: config.CLIENT_SECRET,
             },
+            secure: false,
             tls: {
                 rejectUnauthorized: false
             },
-            port: 587
+            port: 587,
+            
         })
     };
 

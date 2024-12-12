@@ -110,7 +110,7 @@ export const create = async (req, res) => {
 
     } catch (error) {
         console.log(`Error in ventas.controller: ${error}`);
-        return res.status(500).send({ status: 'error', message: error.message })
+        return res.status(500).send({ status: 'error', message: error })
     }
 }
 
