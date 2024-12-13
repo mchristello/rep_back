@@ -18,9 +18,13 @@ export default {
     // Nodemailer
     TRANSPORT_USER: process.env.TRANSPORT_USER,
     GOOGLE_TRANSPORT_PASS: process.env.GOOGLE_TRANSPORT_PASS,
-    GOOGLE_TRANSPORT_PASS_2: process.env.GOOGLE_TRANSPORT_PASS_2,
+    // Credentials
     CLIENT_ID: process.env.CLIENT_ID,
     CLIENT_SECRET: process.env.CLIENT_SECRET,
+    REDIRECT_URI: process.env.REDIRECT_URI,
+    REFRESH_TOKEN: process.env.REFRESH_TOKEN,
+    AUTH_URI: process.env.AUTH_URI,
+    TOKEN_URI: process.env.TOKEN_URI,
     // URLs
     DEV_URL: process.env.DEV_URL,
     PROD_URL: process.env.PROD_URL,
