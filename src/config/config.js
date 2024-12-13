@@ -23,6 +23,7 @@ export default {
     CLIENT_SECRET: process.env.CLIENT_SECRET,
     REDIRECT_URI: process.env.REDIRECT_URI,
     REFRESH_TOKEN: process.env.REFRESH_TOKEN,
+    ACCESS_TOKEN: process.env.ACCESS_TOKEN,
     AUTH_URI: process.env.AUTH_URI,
     TOKEN_URI: process.env.TOKEN_URI,
     // URLs

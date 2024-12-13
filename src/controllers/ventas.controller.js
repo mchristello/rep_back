@@ -1,6 +1,6 @@
 import config from '../config/config.js';
 import { VentasService } from '../repository/index.js';
-import { sendMail } from '../utils/nodemailer.js';
+import { sendMail } from '../utils/mailing.js';
 
 export const get = async (req, res) => {
     try {
@@ -93,7 +93,7 @@ export const create = async (req, res) => {
                     </html>`
 
         const mailOptions = {
-            user: user.email,
+            to: user.email,
             subject: 'Se cargó una nueva venta.',
             html: html
         };
