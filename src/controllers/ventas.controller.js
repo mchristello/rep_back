@@ -48,6 +48,13 @@ export const create = async (req, res) => {
         const data = req.body
         data.user = user._id
 
+        const formatDate = (dateString) => {
+            const date = new Date(dateString);
+            return date.toLocaleDateString("es-AR");
+        };
+
+        const date = formatDate(data.fechaPago)
+
         const html = 
                 `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
                     <html dir="ltr" lang="es">
@@ -64,26 +71,26 @@ export const create = async (req, res) => {
                                         <td>
                                             <img alt="Logo" height="275" 
                                             src='https://repback-production.up.railway.app/img/IMG_1151.JPEG' 
-                                            style="display:block;outline:none;border:none;text-decoration:none;margin:0 auto" width="350" />
+                                            style="display:block;outline:none;border:none;text-decoration:none;margin:0 auto;border-radius:20px;box-shadow:8px 8px 15px rgba(2, 5, 8, 0.5)" width="350"; />
 
                                             <p style="font-size:18px;line-height:16px;margin:2rem auto;color:#0a85ea;font-weight:700;font-family:HelveticaNeue,Helvetica,Arial,sans-serif;height:20px;letter-spacing:0;text-transform:uppercase;text-align:center" >Se ingresó una nueva venta</p>
                                             <h1 style="color:#000;font-family:HelveticaNeue-Medium,Helvetica,Arial,sans-serif;font-size:20px;font-weight:500;line-height:24px;margin-bottom:0;margin:0 auto;text-align:center" > Número de Siniestro ${data.numeroSiniestro}</h1>
-                                            <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:rgba(0,0,0,.05);border-radius:4px;margin:16px auto 14px;vertical-align:middle;width:450px;font-family:HelveticaNeue,Helvetica,Arial,sans-serif">
+                                            <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:rgba(0,0,0,.05);border-radius:20px;margin:16px auto 14px;vertical-align:middle;width:450px;font-family:HelveticaNeue,Helvetica,Arial,sans-serif">
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <p style="font-size:32px;line-height:40px;margin:0 auto;color:#000;display:inline-block;font-weight:700;letter-spacing:6px;padding-bottom:8px;padding-top:8px;width:100%;text-align:center">Vehículo: <br>${data.vehiculo}<hr></p>
+                                                            <p style="font-size:32px;line-height:40px;margin:0 auto;color:#000;display:inline-block;font-weight:700;letter-spacing:2px;padding-bottom:8px;padding-top:8px;width:100%;text-align:center">Vehículo: <br>${data.vehiculo}<hr></p>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <p style="font-size:32px;line-height:40px;margin:0 auto;color:#000;display:inline-block;font-weight:700;letter-spacing:6px;padding-bottom:8px;padding-top:8px;width:100%;text-align:center">Patente: <br>${data.patente}</p>
+                                                            <p style="font-size:32px;line-height:40px;margin:0 auto;color:#000;display:inline-block;font-weight:700;letter-spacing:2px;padding-bottom:8px;padding-top:8px;width:100%;text-align:center">Patente: <br>${data.patente}</p>
                                                         </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <p style="font-size:18px;line-height:23px;margin:0;color:#444;font-family:HelveticaNeue,Helvetica,Arial,sans-serif;letter-spacing:0;padding:0 40px;text-align:center"><b><u>Fecha de pago:</u></b> ${data.fechaPago}</p>
-                                            <p style="font-size:18px;line-height:23px;margin:0;color:#444;font-family:HelveticaNeue,Helvetica,Arial,sans-serif;letter-spacing:0;padding:0 40px;text-align:center"><b><u>Importe Factura:</u></b> ${data.facturaTotal}</p>
+                                            <p style="font-size:18px;line-height:23px;margin:0;color:#444;font-family:HelveticaNeue,Helvetica,Arial,sans-serif;letter-spacing:0;padding:0 40px;text-align:center"><b><u>Fecha de pago:</u></b> ${date}</p>
+                                            <p style="font-size:18px;line-height:23px;margin:0;color:#444;font-family:HelveticaNeue,Helvetica,Arial,sans-serif;letter-spacing:0;padding:0 40px;text-align:center"><b><u>Importe Factura:</u></b> $${data.facturaTotal}</p>
                                         </td>
                                     </tr>
                                 </tbody>
