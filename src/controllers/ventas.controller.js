@@ -1,4 +1,3 @@
-import config from '../config/config.js';
 import { VentasService } from '../repository/index.js';
 import { sendMail } from '../utils/mailing.js';
 
@@ -123,7 +122,14 @@ export const create = async (req, res) => {
 
 export const update = async (req, res) => {
     try {
-        
+        const user = req.session.user;
+        const id = req.params.vid;
+        const data = req.body;
+        data.user = user;
+
+        const result = await VentasService.update(id, data)
+
+        return res.status(200).send({ status: 'success', message: `Update OK.`, payload: result });
     } catch (error) {
         console.log(`Error in ventas.controller: ${error}`);
         return res.status(500).send({ status: 'error', message: error.message })
@@ -132,7 +138,12 @@ export const update = async (req, res) => {
 
 export const deleteSale = async (req, res) => {
     try {
-        
+        const id = req.params.vid;
+        const user = req.session.user;
+
+        const result = await VentasService.delete(id)
+
+        return res.status(200).send({ status: 'success', message: `Delete OK.`, payload: result });
     } catch (error) {
         console.log(`Error in ventas.controller: ${error}`);
         return res.status(500).send({ status: 'error', message: error.message })

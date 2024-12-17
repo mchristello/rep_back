@@ -12,7 +12,7 @@ router.get('/search/:vid', authToken, AuthMiddleware.isAuthenticated, getById);
 
 router.post('/create', authToken, AuthMiddleware.isAuthenticated, create);
 
-router.post('/update/:vid', authToken, AuthMiddleware.isAuthenticated, update);
+router.put('/update/:vid', authToken, AuthMiddleware.isAuthenticated, update);
 
 router.delete('/delete/:vid', authToken, AuthMiddleware.isAuthenticated, deleteSale);
 

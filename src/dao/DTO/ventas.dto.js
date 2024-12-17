@@ -25,6 +25,7 @@ export default class VentaDTO {
             }))
             : [];
         this.facturaTotal = venta.facturaTotal || 0;
+        this.pagoHecho = venta.pagoHecho || false;
         this.gananciaTotal = venta.gananciaTotal || 0;
         this.gananciaMati = venta.gananciaMati || 0;
         this.gananciaAxel = venta.gananciaAxel || 0;

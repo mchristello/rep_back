@@ -52,6 +52,7 @@ export const generateToken = (user) => {
 
 export const authToken = (req, res, next) => {
     const userToken = req.headers['authorization']
+    // console.log({userToken});
 
     if(!userToken) {
         return res.status(499).send({ status: 'error', error: "Unauthorized - No Token Provided." });

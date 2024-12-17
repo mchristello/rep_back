@@ -23,7 +23,7 @@ export default class Ventas {
 
     create = async (ventaFromDTO) => {
         try {
-            // console.log({ventaFromDTO});
+            console.log({ventaFromDTO});
             const nuevaVenta = await VentaModel.create(ventaFromDTO);
             nuevaVenta.save();
             
@@ -33,19 +33,23 @@ export default class Ventas {
         }
     }
 
-    update = async (rid, data) => {
+    update = async (vid, data) => {
         try {
-            const updateEntry = await VentaModel.update({ _id: rid}, data);
-            return updateEntry;
+            const updateEntry = await VentaModel.updateOne({ _id: vid }, data );
+            
+            const updated = await VentaModel.findById(vid);
+            return updated;
         } catch (error) {
             console.log(`Error in UPDATE - ventas.mongo: ${error.message}`);
         }
     }
 
-    delete = async (rid) => {
+    delete = async (vid) => {
         try {
-            const deleteEntry = await VentaModel.delete({ _id: rid });
-            return true;
+            const toDelete = await VentaModel.findById(vid);
+            const deleteEntry = await VentaModel.deleteOne({ _id: vid });
+            
+            return toDelete;
         } catch (error) {
             console.log(`Error in DELETE - ventas.mongo: ${error.message}`);
         }
