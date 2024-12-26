@@ -3,8 +3,15 @@ import { google } from 'googleapis';
 import config from '../config/config.js';
 
 
-const oAuth2Client = new google.auth.OAuth2(config.CLIENT_ID, config.CLIENT_SECRET, config.REDIRECT_URI);
-oAuth2Client.setCredentials({ refresh_token: config.REFRESH_TOKEN });
+const oAuth2Client = new google.auth.OAuth2(
+    config.CLIENT_ID, 
+    config.CLIENT_SECRET, 
+    config.REDIRECT_URI
+);
+
+oAuth2Client.setCredentials({ 
+    refresh_token: config.REFRESH_TOKEN 
+});
 
 const accessToken = await oAuth2Client.getAccessToken();
 

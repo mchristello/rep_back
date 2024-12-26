@@ -4,9 +4,9 @@ import { registerPost, loginPost } from '../controllers/session.controller.js';
 
 const router = Router();
 
-router.post('/register', passport.authenticate('register', { failureRedirect: '/users/error' }), registerPost)
+router.post('/register', passport.authenticate('register', { session: false }), registerPost)
 
-router.post('/login', passport.authenticate('local', { failureRedirect: '/users/error' }), loginPost)
+router.post('/login', passport.authenticate('local', { session: false }), loginPost)
 
 
 export default router;

@@ -21,13 +21,13 @@ export const get = async (req, res) => {
 
 export const getById = async (req, res) => {
     try {
-        const vid = req.params?.vid || req.body.vid;
-
+        const vid = req.params.vid
         if(!vid) {
             return res.status(400).send({ status: 'error', message: `Se debe proveer un ID`})
         }
 
         const result = await VentasService.getById(vid);
+        // console.log({result});
 
         return res.status(200).send({ 
             status: 'success',

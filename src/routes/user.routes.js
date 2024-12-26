@@ -15,7 +15,7 @@ router.post('/create', create);
 router.delete('/delete/:uid', deleteUser);
 
 
-router.get('/current', AuthMiddleware.currentUser, authToken, currentUser);
+// router.get('/current', AuthMiddleware.currentUser, authToken, currentUser);
 
 
 export default router;

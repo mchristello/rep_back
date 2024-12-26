@@ -25,10 +25,10 @@ const initializePassport = () => {
     async(req, username, password, done) => {
         const { first_name, last_name, email } = req.body;
         try {
-            const user = await UserService.findByEmail(username);
-            if (user) {
-                console.log(`Already exists a user with email ${username}`);
-                return done(null, user)
+            const existingUser = await UserService.findByEmail(username);
+            if (existingUser) {
+                console.log(`User with email ${email} already exists.`);
+                return done(null, false, { message: `The email is already registered.`})
             }
 
             const newUser = {
@@ -39,16 +39,16 @@ const initializePassport = () => {
                 role: 'user'
             }
 
-            const result = await UserService.create(newUser);
+            const createdUser = await UserService.create(newUser);
 
-            if(result.email === 'm.christello@hotmail.com') {
-                result.role = 'admin';
-                await result.save();
-                return done(null, result);
+            if(createdUser.email === 'm.christello@hotmail.com') {
+                createdUser.role = 'admin';
+                await createdUser.save();
+                return done(null, createdUser);
             }
 
-            await result.save();
-            return done(null, result);
+            await createdUser.save();
+            return done(null, createdUser);
             
         } catch (error) {
             console.log(`Error in PASSPORT - REGISTER: ${error}`);
@@ -65,18 +65,21 @@ const initializePassport = () => {
         try {
             const user = await UserService.findByEmail(username);
             if(!user) {
-                console.log(`Something's wrong, we culdn't find the user.`);
-                return done(null, false)
+                console.log(`[PASSPORT] Usuario no encontrado: ${username}`);
+                return done(null, false, { message: 'Usuario no encontrado' });
             }
 
-            if(!validatePassword(user, password)) {
-                return done(null, false);
+            const isPasswordValid = validatePassword(user, password);
+            if(!isPasswordValid) {
+                console.log(`[PASSPORT] Contraseña incorrecta para el usuario: ${username}`);
+                return done(null, false, { message: 'Contraseña incorrecta' });
             }
 
+            console.log(`[PASSPORT] Login exitoso para el usuario: ${username}`);
             return done(null, user)
         } catch (error) {
-            console.log(`Error in PASSPORT - LOGIN: ${error}`);
-            return done(`There's been an error trying to login: ${error.message}`)
+            console.error(`[PASSPORT] Error al intentar iniciar sesión: ${error.message}`);
+            return done(error)
         }
     }))
 

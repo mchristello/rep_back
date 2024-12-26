@@ -11,11 +11,11 @@ export default class VentaDTO {
         this.fecha = parseFecha(venta.fecha) || new Date().toLocaleString();
         this.numeroSiniestro = venta.numeroSiniestro || 0;
         this.porcentajeAporte = venta.porcentajeAporte || 50;
-        this.vehiculo = venta.vehiculo || '';
-        this.patente = venta.patente || '';
+        this.vehiculo = venta.vehiculo.toUpperCase() || '';
+        this.patente = venta.patente.toUpperCase() || '';
         this.items = Array.isArray(venta.items) 
             ? venta.items.map(item => ({
-                repuesto: item.repuesto || '',
+                repuesto: item.repuesto.toUpperCase() || '',
                 precioClaims: item.precioClaims || 0,
                 iva: item.iva || 0,
                 importeFacturar: item.importeFacturar || 0,
