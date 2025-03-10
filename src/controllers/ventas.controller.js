@@ -104,7 +104,7 @@ export const create = async (req, res) => {
             html: html
         };
 
-        await sendMail.send(mailOptions);
+        // await sendMail.send(mailOptions);
 
         const venta = await VentasService.create(data)
 
